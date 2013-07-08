@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'es_dump_restore'
-require 'es_dump_restore/app'
+require_relative '../lib/es_dump_restore'
+require_relative '../lib/es_dump_restore/app'
 
 EsDumpRestore::App.start

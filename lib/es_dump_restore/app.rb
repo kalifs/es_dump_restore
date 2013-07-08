@@ -1,5 +1,5 @@
-require "es_dump_restore/es_client"
-require "es_dump_restore/dumpfile"
+require_relative "es_client"
+require_relative "dumpfile"
 require "thor"
 require "progress_bar"
 require "multi_json"
