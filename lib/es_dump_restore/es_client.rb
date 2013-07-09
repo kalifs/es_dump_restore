@@ -24,7 +24,7 @@ module EsDumpRestore
 
     def start_scan(&block)
       scroll = request(:get, '_search',
-        query: { search_type: 'scan', scroll: '10m', size: 500 },
+        query: { search_type: 'scan', scroll: '15m', size: 500 },
         body: MultiJson.dump({ query: { match_all: {} } }) )
       total = scroll["hits"]["total"]
       scroll_id = scroll["_scroll_id"]
@@ -34,7 +34,7 @@ module EsDumpRestore
 
     def each_scroll_hit(scroll_id, &block)
       loop do
-        batch = request(:get, '/_search/scroll', query: { scroll: '10m', scroll_id: scroll_id })
+        batch = request(:get, '/_search/scroll', query: { scroll: '15m', scroll_id: scroll_id })
         hits = batch["hits"]["hits"]
         break if hits.empty?
 
